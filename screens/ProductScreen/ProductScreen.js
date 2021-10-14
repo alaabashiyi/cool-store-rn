@@ -1,54 +1,51 @@
 import React from 'react'
-import { View, Text, Image, Dimensions, Button, SafeAreaView, TouchableOpacity } from 'react-native'
+import { View, Text, Image, Dimensions, ScrollView, SafeAreaView } from 'react-native'
 import styles from './style'
 import PRODUCT from '../../assets/images/product.png';
-import { ShoppingBagIcon, ShareIcon } from "react-native-heroicons/outline";
-import { HeartIcon as HeartIconOutline } from "react-native-heroicons/outline";
+import ProductActions from '../../components/ProductActions/ProductActions';
+import BuyButton from '../../components/Button/Button';
+import BackButton from '../../components/BackButton/BackButton';
+
 
 const { width, height } = Dimensions.get('window');
+const labels = {
+    desc: "Description",
+    buy: "BUY NOW"
+}
 
-const ProductScreen = ({ item: { name, description, features, id, price = 0 } }) => {
+const ProductScreen = ({ item: { name = '', description = '', price = 0 } }) => {
     const discount = (price - (price / 10)).toFixed(2);
     return (
-        <View style={styles.container}>
-            <View>
-                <Image source={PRODUCT} style={{ resizeMode: 'cover', width: '100%', height: height / 2 }} />
-            </View>
-            <View style={styles.actions}>
-
-                <TouchableOpacity activeOpacity={.6}>
-                    <HeartIconOutline color="red" />
-                </TouchableOpacity>
-
-                <TouchableOpacity activeOpacity={.6}>
-                    <ShoppingBagIcon />
-                </TouchableOpacity>
-
-                <TouchableOpacity activeOpacity={.6}>
-                    <ShareIcon />
-                </TouchableOpacity>
-            </View>
-            <View style={styles.header}>
-                <View style={styles.name}>
-                    {name && <Text style={styles.nameText}>{name}</Text>}
+        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainerStyle}>
+            <View style={styles.upperContent}>
+                <View>
+                    <Image source={PRODUCT} style={[styles.image, { height: height / 1.9 }]} />
                 </View>
+                <ProductActions />
+                <View style={styles.header}>
+                    <View style={styles.name}>
+                        <Text style={styles.nameText}>{name}</Text>
+                    </View>
 
-                <View style={styles.price}>
-                    <Text style={styles.discount}>{`$${discount}`}</Text>
-                    <Text style={styles.priceFont}>{`$${price}`}</Text>
+                    <View style={styles.price}>
+                        <Text style={styles.discount}>{`$${discount}`}</Text>
+                        <Text style={styles.priceFont}>{`$${price}`}</Text>
+                    </View>
+                </View>
+                <View style={styles.description}>
+                    <Text style={styles.descriptionTitle}>{labels.desc}</Text>
+                    <Text style={styles.descriptionContent}>{description}</Text>
                 </View>
             </View>
-            <View style={styles.description}>
-                <Text style={styles.descriptionTitle}>Description:</Text>
-                <Text style={styles.descriptionContent}>{description}</Text>
+
+            <View style={styles.bottomContent}>
+                <SafeAreaView>
+                    <BuyButton title={labels.buy} onPress={() => console.log('BUY NOW')} />
+                </SafeAreaView>
             </View>
-            <SafeAreaView>
-                <TouchableOpacity style={styles.buyButton} activeOpacity={.7}>
-                    <Text style={styles.buyButtonText}>BUY NOW</Text>
-                </TouchableOpacity>
-            </SafeAreaView>
-        </View>
+            <BackButton top={50} size={35} left={20} color="black" />
+        </ScrollView>
     )
 }
 
-export default ProductScreen
+export default ProductScreen;

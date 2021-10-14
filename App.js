@@ -34,9 +34,6 @@ const App = () => {
     <Provider store={store}>
       <View style={backgroundStyle}>
         <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        {/* <View>
-          <Text style={{ color: '#fff' }}>App first screen</Text>
-        </View> */}
         <ProductScreen item={fakeItem} />
       </View>
     </Provider>

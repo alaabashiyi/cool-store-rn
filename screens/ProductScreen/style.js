@@ -4,19 +4,19 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         height: '100%',
     },
-    actions: {
-        paddingVertical: 15,
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        borderBottomWidth: 1,
-        borderBottomColor: 'rgba(171, 183, 183, .5)',
-    },
+    contentContainerStyle: { flexGrow: 1, justifyContent: 'space-between' },
+    upperContent: { flex: 1, justifyContent: 'flex-start' },
+    bottomContent: { flex: 1, justifyContent: 'flex-end' },
     header: {
         paddingVertical: 10,
         flexDirection: 'row',
         justifyContent: 'space-between',
         borderBottomWidth: 1,
-        borderBottomColor: 'rgba(171, 183, 183, .5)'
+        borderBottomColor: 'rgba(171, 183, 183, .5)',
+        flex: 1
+    },
+    image: {
+        resizeMode: 'cover', width: '100%',
     },
     price: {
         paddingVertical: 10,
@@ -51,23 +51,12 @@ const styles = StyleSheet.create({
     },
     descriptionTitle: {
         fontWeight: 'bold',
-        fontSize: 15
+        fontSize: 15,
     },
     descriptionContent: {
         paddingTop: 10,
         fontSize: 14,
         lineHeight: 15,
-    },
-    buyButton: {
-        backgroundColor: '#f194ff',
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingVertical: 15,
-        marginHorizontal: 20,
-        borderRadius: 4,
-    },
-    buyButtonText: {
-        color: '#fff'
     },
 });
 
