@@ -7,8 +7,20 @@ import {
   View,
 } from 'react-native';
 import { Provider } from 'react-redux';
+import ProductScreen from './screens/ProductScreen/ProductScreen';
 import { store } from './stores/store';
 
+const fakeItem = {
+  "id": "GGOEAFKA087499",
+  "name": "Android Small Removable Sticker Sheet",
+  "description": "Show your Android pride by placing these 8 fun stickers on your technology products or accessories!",
+  "features": "8 Android stickers White colored sticker sheet",
+  "price": "2.99",
+  "keywords": "Android Small Removable Sticker Sheet, android stickers, sticker sheets, removable sticker sheets, small sticker sheet, android small sticker sheets, Android Sheet",
+  "url": "Android+Small+Removable+Sticker+Sheet",
+  "category": "accessories",
+  "subcategory": "accessories"
+};
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -20,12 +32,13 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <SafeAreaView style={backgroundStyle}>
+      <View style={backgroundStyle}>
         <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        <View>
+        {/* <View>
           <Text style={{ color: '#fff' }}>App first screen</Text>
-        </View>
-      </SafeAreaView>
+        </View> */}
+        <ProductScreen item={fakeItem} />
+      </View>
     </Provider>
   );
 };
