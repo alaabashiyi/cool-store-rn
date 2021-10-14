@@ -13,7 +13,20 @@ const labels = {
     buy: "BUY NOW"
 }
 
-const ProductScreen = ({ item: { name = '', description = '', price = 0 } }) => {
+const fakeItem = {
+    "id": "GGOEAFKA087499",
+    "name": "Android Small Removable Sticker Sheet",
+    "description": "Show your Android pride by placing these 8 fun stickers on your technology products or accessories!",
+    "features": "8 Android stickers White colored sticker sheet",
+    "price": "2.99",
+    "keywords": "Android Small Removable Sticker Sheet, android stickers, sticker sheets, removable sticker sheets, small sticker sheet, android small sticker sheets, Android Sheet",
+    "url": "Android+Small+Removable+Sticker+Sheet",
+    "category": "accessories",
+    "subcategory": "accessories"
+};
+
+const ProductScreen = ({ navigation, route }) => {
+    const { name = '', description = '', price = 0 } = route.params?.item;
     const discount = (price - (price / 10)).toFixed(2);
     return (
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainerStyle}>
@@ -43,7 +56,7 @@ const ProductScreen = ({ item: { name = '', description = '', price = 0 } }) => 
                     <BuyButton title={labels.buy} onPress={() => console.log('BUY NOW')} />
                 </SafeAreaView>
             </View>
-            <BackButton top={50} size={35} left={20} color="black" />
+            <BackButton onPress={() => navigation.goBack()} top={50} size={35} left={20} color="black" />
         </ScrollView>
     )
 }
