@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text, TouchableOpacity } from 'react-native';
 import HomeScreen from "../screens/HomeScreen/HomeScreen";
 import ProductScreen from "../screens/ProductScreen/ProductScreen";
 
@@ -10,8 +11,24 @@ const AppNavigation = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name='HomeScreen' component={HomeScreen} options={{ headerShown: false, gestureEnabled: true }} />
-                <Stack.Screen name='ProductScreen' component={ProductScreen} options={{ headerShown: false, gestureEnabled: true }} />
+                <Stack.Screen
+                    name='HomeScreen'
+                    component={HomeScreen}
+                    options={({ navigation, route }) => ({
+                        headerTitle: props =>
+                            (<Text style={{ fontSize: 18, fontWeight: 'bold' }}>Products</Text>),
+                        gestureEnabled: true,
+
+                    })}
+                />
+                <Stack.Screen
+                    name='ProductScreen'
+                    component={ProductScreen}
+                    options={({ navigation, route }) => ({
+                        headerShown: false,
+                        gestureEnabled: true,
+                    })}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     )
