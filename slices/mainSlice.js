@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getDataAction, searchDataAction } from "../actions/mainActions";
 
 const initialState = {
     data: [],
@@ -12,14 +13,26 @@ export const mainSlice = createSlice({
     reducers: {
         setProducts: (state, action) => {
             const { data, pages, results } = action.payload;
-            Object.assign(state, { data, pages, results });
+            Object.assign(state, { data: [...data, ...state.data], pages, results });
         },
-        setMoreProducts: (state, action) => {
-            state.data = [...state.data, ...action.payload];
+        resetData: (state, action) => {
+            console.log('reseting data')
+            Object.assign(state, { data: [], pages: null, results: null });
         }
-    }
+    },
+    extraReducers: (builder) => {
+        builder.addCase(getDataAction.fulfilled, (state, action) => {
+            const { data, pages, results } = action.payload;
+            Object.assign(state, { data: [...data, ...state.data], pages, results });
+
+        }),
+            builder.addCase(searchDataAction.fulfilled, (state, action) => {
+                const { data, pages, results } = action.payload;
+                Object.assign(state, { data, pages, results });
+            })
+    },
 });
 
-export const { setProducts, setMoreProducts } = mainSlice.actions;
+export const { setProducts, resetData } = mainSlice.actions;
 
 export default mainSlice.reducer;

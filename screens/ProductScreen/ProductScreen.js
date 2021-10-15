@@ -41,8 +41,8 @@ const ProductScreen = ({ navigation, route }) => {
                     </View>
 
                     <View style={styles.price}>
-                        <Text style={styles.discount}>{`$${discount}`}</Text>
-                        <Text style={styles.priceFont}>{`$${price}`}</Text>
+                        <Text style={styles.discount}>{`$${price}`}</Text>
+                        <Text style={styles.priceFont}>{`$${discount}`}</Text>
                     </View>
                 </View>
                 <View style={styles.description}>
