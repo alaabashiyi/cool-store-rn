@@ -43,9 +43,8 @@ const HomeScreen = ({ navigation }) => {
     console.log('Products', products.length);
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.text}>Home screen - search your items today</Text>
-            {debounce !== '' && <Text style={styles.text}>{results} found</Text>}
             <SearchInput searchValue={searchValue} setSearchValue={setSearchValue} debounce={debounce} />
+            {debounce !== '' && <Text style={styles.text}>{results} found</Text>}
             <ProductList
                 navigation={navigation}
                 products={products}

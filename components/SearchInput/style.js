@@ -18,12 +18,16 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 5,
         padding: 10,
-        lineHeight: 20
+        lineHeight: 20,
+        backgroundColor: 'rgba(0,0,0,.04)'
     },
     icon: {
-        width: 50,
+        width: 43,
         justifyContent: 'center',
         alignItems: 'center',
+        // borderColor: 'rgba(0,0,0,.2)',
+        // borderWidth: 1,
+        borderRadius: 50,
     },
 });
 
