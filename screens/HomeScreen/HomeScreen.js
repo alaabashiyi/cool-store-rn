@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { View, Text, SafeAreaView, KeyboardAvoidingView, Platform, Keyboard } from 'react-native'
+import { View, Text, SafeAreaView, Keyboard } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux';
 import { getDataAction, searchDataAction } from '../../actions/mainActions';
 import ProductList from '../../components/ProductList/ProductList';
@@ -21,6 +21,7 @@ const HomeScreen = ({ navigation }) => {
         dispatch(resetData());
         Keyboard.dismiss();
     }
+
     const debounce = useDebounce(searchValue, reset, 500);
 
     const handleData = async (pageNum, keyword) => {
@@ -40,12 +41,11 @@ const HomeScreen = ({ navigation }) => {
         }
     }, [debounce]);
 
-    console.log('Products', products.length);
     return (
         <SafeAreaView style={styles.container}>
             <SearchInput searchValue={searchValue} setSearchValue={setSearchValue} debounce={debounce} />
             <View style={styles.searchResults}>
-                {debounce !== '' && <Text style={styles.text}>{results || 0} results</Text>}
+                {debounce !== '' && <Text style={styles.text}>{`${results || 'No results for'} ${results ? 'results' : debounce}`}</Text>}
             </View>
             <ProductList
                 navigation={navigation}
@@ -59,4 +59,4 @@ const HomeScreen = ({ navigation }) => {
     )
 };
 
-export default HomeScreen
+export default HomeScreen;

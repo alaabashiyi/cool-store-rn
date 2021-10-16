@@ -1,16 +1,14 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import { View, TouchableOpacity, TextInput, Animated, Dimensions, Easing, Text, Keyboard } from 'react-native'
 import { SearchIcon, XCircleIcon } from "react-native-heroicons/outline";
 import styles from './style';
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 const SearchInput = ({ searchValue, setSearchValue }) => {
     const [showSearch, setShowSearch] = useState(false);
     const searchInput = useRef(null);
     const transition = useRef(new Animated.Value(width)).current;
     const titleTransition = useRef(new Animated.Value(50)).current;
-
-
 
     const showSearchbar = () => {
         if (searchValue === '') Keyboard.dismiss();
@@ -20,7 +18,6 @@ const SearchInput = ({ searchValue, setSearchValue }) => {
         }
         handleAnimation();
         if (!showSearch) searchInput.current.focus();
-
     }
 
     const handleSearchValue = (value) => {
@@ -69,7 +66,6 @@ const SearchInput = ({ searchValue, setSearchValue }) => {
                         ],
                     }]}
             >
-
                 <TextInput
                     ref={searchInput}
                     placeholder="Search..."
@@ -77,8 +73,6 @@ const SearchInput = ({ searchValue, setSearchValue }) => {
                     style={styles.textInput}
                     value={searchValue}
                     onChangeText={handleSearchValue}
-                // autoFocus={showSearch}
-
                 />
             </Animated.View>
             <TouchableOpacity
@@ -91,7 +85,7 @@ const SearchInput = ({ searchValue, setSearchValue }) => {
                 {!showSearch && searchValue === '' ? <SearchIcon /> : <XCircleIcon />}
             </TouchableOpacity>
         </View>
-    )
+    );
 }
 
 export default SearchInput

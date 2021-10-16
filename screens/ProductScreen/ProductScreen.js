@@ -7,23 +7,11 @@ import BuyButton from '../../components/Button/Button';
 import BackButton from '../../components/BackButton/BackButton';
 
 
-const { width, height } = Dimensions.get('window');
+const { height } = Dimensions.get('window');
 const labels = {
     desc: "Description",
     buy: "BUY NOW"
 }
-
-const fakeItem = {
-    "id": "GGOEAFKA087499",
-    "name": "Android Small Removable Sticker Sheet",
-    "description": "Show your Android pride by placing these 8 fun stickers on your technology products or accessories!",
-    "features": "8 Android stickers White colored sticker sheet",
-    "price": "2.99",
-    "keywords": "Android Small Removable Sticker Sheet, android stickers, sticker sheets, removable sticker sheets, small sticker sheet, android small sticker sheets, Android Sheet",
-    "url": "Android+Small+Removable+Sticker+Sheet",
-    "category": "accessories",
-    "subcategory": "accessories"
-};
 
 const ProductScreen = ({ navigation, route }) => {
     const { name = '', description = '', price = 0 } = route.params?.item;
@@ -39,7 +27,6 @@ const ProductScreen = ({ navigation, route }) => {
                     <View style={styles.name}>
                         <Text style={styles.nameText}>{name}</Text>
                     </View>
-
                     <View style={styles.price}>
                         <Text style={styles.discount}>{`$${price}`}</Text>
                         <Text style={styles.priceFont}>{`$${discount}`}</Text>
@@ -50,10 +37,9 @@ const ProductScreen = ({ navigation, route }) => {
                     <Text style={styles.descriptionContent}>{description}</Text>
                 </View>
             </View>
-
             <View style={styles.bottomContent}>
                 <SafeAreaView>
-                    <BuyButton title={labels.buy} onPress={() => console.log('BUY NOW')} />
+                    <BuyButton title={labels.buy} onPress={() => console.log(labels.buy)} />
                 </SafeAreaView>
             </View>
             <BackButton onPress={() => navigation.goBack()} top={50} size={35} left={20} color="black" />

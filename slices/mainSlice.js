@@ -5,34 +5,46 @@ const initialState = {
     data: [],
     pages: null,
     results: null,
+    error: null,
+    isLoading: false,
 }
 
 export const mainSlice = createSlice({
     name: 'main',
     initialState,
     reducers: {
-        setProducts: (state, action) => {
-            const { data, pages, results } = action.payload;
-            Object.assign(state, { data: [...data, ...state.data], pages, results });
-        },
         resetData: (state, action) => {
-            console.log('reseting data')
-            Object.assign(state, { data: [], pages: null, results: null });
+            Object.assign(state, { data: [], pages: null, results: null, error: null });
         }
     },
     extraReducers: (builder) => {
         builder.addCase(getDataAction.fulfilled, (state, action) => {
             const { data, pages, results } = action.payload;
-            Object.assign(state, { data: [...data, ...state.data], pages, results });
-
+            state.data.push(...data);
+            Object.assign(state, { pages, results, isLoading: false });
         }),
+            builder.addCase(getDataAction.pending, (state, action) => {
+                Object.assign(state, { isLoading: true, error: null })
+
+            }),
+            builder.addCase(getDataAction.rejected, (state, action) => {
+                Object.assign(state, { error: true, isLoading: false });
+            }),
             builder.addCase(searchDataAction.fulfilled, (state, action) => {
                 const { data, pages, results } = action.payload;
-                Object.assign(state, { data, pages, results });
+                Object.assign(state, { data, pages, results, isLoading: false, error: null });
+            }),
+            builder.addCase(searchDataAction.pending, (state, action) => {
+                Object.assign(state, { isLoading: true, error: null })
+
+            }),
+            builder.addCase(searchDataAction.rejected, (state, action) => {
+                Object.assign(state, { error: true, isLoading: false });
             })
+
     },
 });
 
-export const { setProducts, resetData } = mainSlice.actions;
+export const { resetData } = mainSlice.actions;
 
 export default mainSlice.reducer;

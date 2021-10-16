@@ -3,11 +3,11 @@ import { View, Text, Image, TouchableOpacity } from 'react-native'
 import PRODUCT from '../../assets/images/product.png';
 import styles from './style'
 
-const ProductItem = ({ item: { name, features, price }, onPress }) => {
+const ProductItem = ({ item: { name, features, price }, onPress, sizes: { CARD_SIZE, SPACING } }) => {
     return (
-        <TouchableOpacity activeOpacity={.9} onPress={onPress}>
-            <View style={styles.container}>
-                <View style={styles.imageContainer}>
+        <TouchableOpacity activeOpacity={.9} onPress={onPress} className={styles.touchContainer}>
+            <View style={[styles.container, { height: CARD_SIZE, margin: SPACING }]}>
+                <View>
                     <Image source={PRODUCT} style={styles.image} />
                 </View>
                 <View style={styles.info}>
