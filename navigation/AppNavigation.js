@@ -1,5 +1,4 @@
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
 import HomeScreen from "../screens/HomeScreen/HomeScreen";
 import ProductScreen from "../screens/ProductScreen/ProductScreen";
 
@@ -15,8 +14,6 @@ const AppNavigation = () => {
                     name='HomeScreen'
                     component={HomeScreen}
                     options={({ navigation, route }) => ({
-                        headerTitle: props =>
-                            (<Text style={{ fontSize: 18, fontWeight: 'bold' }}>Products</Text>),
                         gestureEnabled: true,
                         headerShown: false,
 

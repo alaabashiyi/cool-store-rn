@@ -5,18 +5,28 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
         alignItems: "center",
-        height: 80,
-        marginVertical: 10,
-        marginHorizontal: 5,
         flex: 1,
-        borderBottomWidth: 1,
-        borderTopWidth: 1,
-        borderColor: 'rgba(228, 233, 237, 1)'
+        borderWidth: 1,
+        borderColor: 'rgba(228, 233, 237, 1)',
+        borderRadius: 8,
+        backgroundColor: '#fff',
+        shadowColor: 'rgba(1,1,1,.7)',
+        shadowOffset: {
+            width: 0,
+            height: 25,
+        },
+        shadowOpacity: .3,
+        shadowRadius: 25
+    },
+    touchContainer: {
+
     },
     image: {
         resizeMode: 'cover',
         width: 120,
         height: '100%',
+        borderTopLeftRadius: 8,
+        borderBottomLeftRadius: 8,
     },
     info: {
         flexDirection: "row",
