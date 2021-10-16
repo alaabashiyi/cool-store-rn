@@ -3,14 +3,16 @@ const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
+        justifyContent: 'center',
+        width: width,
+        marginVertical: 5,
     },
     textInputContainer: {
         paddingLeft: 10,
         width: width - 50,
         height: 42,
+        width: width * 0.8,
 
-        // borderWidth: 1,
-        // borderColor: '#000'
     },
     textInput: {
         fontSize: 16,
@@ -25,10 +27,20 @@ const styles = StyleSheet.create({
         width: 43,
         justifyContent: 'center',
         alignItems: 'center',
-        // borderColor: 'rgba(0,0,0,.2)',
-        // borderWidth: 1,
-        borderRadius: 50,
     },
+    title: {
+        position: 'absolute',
+        top: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 150,
+        left: ((width * 0.8) / 2) - (150 / 2),
+
+    },
+    titleText: {
+        fontSize: 18,
+        fontWeight: 'bold',
+    }
 });
 
 export default styles;

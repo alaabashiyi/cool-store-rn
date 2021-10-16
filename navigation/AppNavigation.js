@@ -18,6 +18,7 @@ const AppNavigation = () => {
                         headerTitle: props =>
                             (<Text style={{ fontSize: 18, fontWeight: 'bold' }}>Products</Text>),
                         gestureEnabled: true,
+                        headerShown: false,
 
                     })}
                 />
