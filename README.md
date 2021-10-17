@@ -78,6 +78,16 @@ Make sure Node version is the latest version.
    ```js
    npx pod-install ios
    ```
+7. Run the app on ios emulator.
+   ```js
+   yarn ios
+   ```
+8. Run the app on Android emulator.
+    ```sh
+    yarn android
+    ```
+## NOTE: 
+#### I couldn't test the app on android, i have a Hackintosh mac and im having some issues with Android Studio.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
