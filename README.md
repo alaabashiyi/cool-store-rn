@@ -87,7 +87,7 @@ Make sure Node version is the latest version.
     yarn android
     ```
 ## NOTE: 
-#### I couldn't test the app on android, i have a Hackintosh mac and im having some issues with Android Studio.
+#### I couldn't test the app on android, I have a Hackintosh mac and I'm having some issues with Android Studio so i couldn't test or run the app on android.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -109,7 +109,7 @@ Contributions are what make the open source community such an amazing place to l
 <!-- CONTACT -->
 ## Contact
 
-Alaa Bashiyi - [@ABashiyi](https://twitter.com/ABashiyi)
+Twitter - [@ABashiyi](https://twitter.com/ABashiyi)
 
 LinkedIn - [@Alaabashiyi](https://www.linkedin.com/in/alaa-bashiyi-5b3818145/)
 
