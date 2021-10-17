@@ -42,6 +42,7 @@ const HomeScreen = ({ navigation }) => {
         }
     }, [debounce]);
 
+
     return (
         <SafeAreaView style={styles.container}>
             <SearchInput searchValue={searchValue} setSearchValue={setSearchValue} debounce={debounce} />
