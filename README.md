@@ -109,13 +109,13 @@ Contributions are what make the open source community such an amazing place to l
 <!-- CONTACT -->
 ## Contact
 
-Alaa Bashiyi - [@ABashiyi](https://twitter.com/ABashiyi);
+Alaa Bashiyi - [@ABashiyi](https://twitter.com/ABashiyi)
 
-LinkedIn - [@Alaabashiyi](https://www.linkedin.com/in/alaa-bashiyi-5b3818145/);
+LinkedIn - [@Alaabashiyi](https://www.linkedin.com/in/alaa-bashiyi-5b3818145/)
 
-Application - (Frontend): [Repo](https://github.com/alaabashiyi/cool-store-rn); 
+Application - (Frontend): [Repo](https://github.com/alaabashiyi/cool-store-rn)
 
-Server - (Backend): [Repo](https://github.com/alaabashiyi/Node-server);
+Server - (Backend): [Repo](https://github.com/alaabashiyi/Node-server)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
