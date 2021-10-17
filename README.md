@@ -37,6 +37,7 @@ when clicking the search bar you can search for items.
 * Redux
 * React navigation
 * Animated API
+* @react-native-community/netinfo 
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
