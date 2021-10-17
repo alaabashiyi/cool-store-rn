@@ -5,7 +5,7 @@ import { getDataAction, searchDataAction } from '../../actions/mainActions';
 import ProductList from '../../components/ProductList/ProductList';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import useDebounce from '../../hooks/useDebounce';
-import { selectProducts, selectPages, selectResults } from '../../selectors/mainSelectors';
+import { selectProducts, selectPages, selectResults, selectError } from '../../selectors/mainSelectors';
 import { resetData } from '../../slices/mainSlice';
 import styles from './style';
 
@@ -16,6 +16,7 @@ const HomeScreen = ({ navigation }) => {
     const products = useSelector(selectProducts);
     const pages = useSelector(selectPages);
     const results = useSelector(selectResults);
+    const error = useSelector(selectError);
 
     const reset = () => {
         dispatch(resetData());
@@ -45,7 +46,7 @@ const HomeScreen = ({ navigation }) => {
         <SafeAreaView style={styles.container}>
             <SearchInput searchValue={searchValue} setSearchValue={setSearchValue} debounce={debounce} />
             <View style={styles.searchResults}>
-                {debounce !== '' && <Text style={styles.text}>{`${results || 'No results for'} ${results ? 'results' : debounce}`}</Text>}
+                {!error && debounce !== '' && <Text style={styles.text}>{`${results || 'No results for'} ${results ? 'results' : debounce}`}</Text>}
             </View>
             <ProductList
                 navigation={navigation}

@@ -21,7 +21,7 @@ export const mainSlice = createSlice({
         builder.addCase(getDataAction.fulfilled, (state, action) => {
             const { data, pages, results } = action.payload;
             state.data.push(...data);
-            Object.assign(state, { pages, results, isLoading: false });
+            Object.assign(state, { pages, results, isLoading: false, error: null });
         }),
             builder.addCase(getDataAction.pending, (state, action) => {
                 Object.assign(state, { isLoading: true, error: null })

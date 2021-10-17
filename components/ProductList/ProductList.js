@@ -9,7 +9,7 @@ import Error from '../Error/Error';
 
 const SPACING = 10;
 const CARD_SIZE = 80;
-const ITEM_SIZE = CARD_SIZE + SPACING * 2;
+const ITEM_SIZE = CARD_SIZE + (SPACING * 2);
 
 const ProductList = ({ navigation, products, pages, handleData, debounce, page }) => {
     const scrollY = useRef(new Animated.Value(0)).current;
