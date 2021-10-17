@@ -1,10 +1,12 @@
 import React from 'react'
 import { View, Text, Image, Dimensions, ScrollView, SafeAreaView } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './style'
 import PRODUCT from '../../assets/images/product.png';
 import ProductActions from '../../components/ProductActions/ProductActions';
 import BuyButton from '../../components/Button/Button';
 import BackButton from '../../components/BackButton/BackButton';
+import { setLike } from '../../slices/mainSlice';
 
 
 const { height } = Dimensions.get('window');
@@ -14,15 +16,18 @@ const labels = {
 }
 
 const ProductScreen = ({ navigation, route }) => {
-    const { name = '', description = '', price = 0 } = route.params?.item;
+    const { name = '', description = '', price = 0, id = '' } = route.params?.item;
     const discount = (price - (price / 10)).toFixed(2);
+    const dispatch = useDispatch();
+    const isLike = useSelector(state => state.main.likes.includes(id));
+
     return (
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainerStyle}>
             <View style={styles.upperContent}>
                 <View>
                     <Image source={PRODUCT} style={[styles.image, { height: height / 1.9 }]} />
                 </View>
-                <ProductActions />
+                <ProductActions isLike={isLike} like={() => dispatch(setLike(id))} />
                 <View style={styles.header}>
                     <View style={styles.name}>
                         <Text style={styles.nameText}>{name}</Text>

@@ -7,6 +7,7 @@ const initialState = {
     results: null,
     error: null,
     isLoading: false,
+    likes: [],
 }
 
 export const mainSlice = createSlice({
@@ -15,6 +16,11 @@ export const mainSlice = createSlice({
     reducers: {
         resetData: (state, action) => {
             Object.assign(state, { data: [], pages: null, results: null, error: null });
+        },
+        setLike: (state, action) => {
+            const isLike = state.likes.find(item => item === action.payload);
+            isLike ? state.likes = state.likes.filter(id => id !== isLike) : state.likes.push(action.payload);
+
         }
     },
     extraReducers: (builder) => {
@@ -45,6 +51,6 @@ export const mainSlice = createSlice({
     },
 });
 
-export const { resetData } = mainSlice.actions;
+export const { resetData, setLike } = mainSlice.actions;
 
 export default mainSlice.reducer;
